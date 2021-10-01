@@ -20,6 +20,16 @@ namespace DataAccessLayer.Repositories
             throw new NotImplementedException();
         }
 
+        public Comment GetById(int t)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Comment> GetListAll()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Comment> GetListItem()
         {
             throw new NotImplementedException();
