@@ -41,5 +41,14 @@ namespace BusinessLayer.Concrete
         {
             return _blogdbl.GetById(id);
         }
+
+        public List<Blog> GetBlogById(int id)
+        {
+            return _blogdbl.GetListAll(x => x.BlogId == id);
+        }
+        public List<Blog> GetBlogListWithCategory()
+        {
+            return _blogdbl.GetListWithCategory();
+        }
     }
 }
