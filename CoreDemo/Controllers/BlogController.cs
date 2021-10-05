@@ -17,9 +17,10 @@ namespace CoreDemo.Controllers
             return View(values);
         }
 
-        public IActionResult BlogDetail(int id)
+        public IActionResult BlogReadAll(int id)
         {
-            return View();
+            var values = bm.GetBlogById(id);
+            return View(values); 
         }
     }
 }

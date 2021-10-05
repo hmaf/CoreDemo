@@ -8,6 +8,7 @@
   <ItemGroup>
     <None Include="Views\Blog\Index.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
+    <None Include="Views\Comment\CommentListByBlog.cshtml" />
     <None Include="wwwroot\Web\js\bootstrap.js" />
     <None Include="wwwroot\Web\js\easing.js" />
     <None Include="wwwroot\Web\js\jquery-2.2.3.min.js" />
