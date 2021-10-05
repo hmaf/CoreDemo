@@ -3,63 +3,68 @@
 @{
     ViewData["Title"] = "BlogDetail";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
+    var s = Model.SingleOrDefault(x => x.BlogId == ViewBag.id).BlogTitle;
 }
 
-<ol class="breadcrumb">
+<ol dir="rtl" class="breadcrumb" style="padding-right: 10%">
+
     <li class="breadcrumb-item">
         <a href="/Blog">بلوگ</a>
     </li>
-    <li class="breadcrumb-item active">Single</li>
+    <li class="breadcrumb-item active">@s</li>
 </ol>
+
 
 <section class="banner-bottom">
     <!--/blog-->
     <div class="container">
         <div class="row">
             <!--left-->
-            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
-                @foreach(var item in Model){
-                <div class="blog-grid-top">
-                    <div class="b-grid-top">
-                        <div class="blog_info_left_grid">
-                            <a href="single.html">
-                                <img src="@item.BlogThumbnailName" class="img-fluid" alt="">
-                            </a>
-                        </div>
-                        <div class="blog-info-middle">
-                            <ul>
-                                <li>
-                                    <a href="#">
-                                        <i class="far fa-calendar-alt"></i> 
-                                        @(((DateTime) item.BlogCreateDate).ToString("dd-MMM-yyyy"))
-                                    </a>
-                                </li>
-                                <li class="mx-2">
-                                    <a href="#">
-                                        <i class="far fa-thumbs-up"></i> 0 Likes
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <i class="far fa-comment"></i> 0 نظر
-                                    </a>
-                                </li>
+            <div class="col-lg-8 left-blog-info-w3layouts-agileits text-right">
+                @foreach (var item in Model)
+                {
+                    <div class="blog-grid-top">
+                        <div class="b-grid-top">
+                            <div class="blog_info_left_grid">
+                                <a href="#">
+                                    <img src="@item.BlogThumbnailName" class="img-fluid" alt="">
+                                </a>
+                            </div>
+                            <div class="blog-info-middle">
+                                <ul>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-calendar-alt"></i>
+                                            @(((DateTime) item.BlogCreateDate).ToString("dd-MMM-yyyy"))
+                                        </a>
+                                    </li>
+                                    <li class="mx-2">
+                                        <a href="#">
+                                            <i class="far fa-thumbs-up"></i> 0 Likes
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="far fa-comment"></i> 0 نظر
+                                        </a>
+                                    </li>
 
-                            </ul>
+                                </ul>
+                            </div>
                         </div>
+
+                        <h3 class="text-right">
+                            <a href="single.html">@item.BlogTitle </a>
+                        </h3>
+                        <p class="text-right">
+                            @item.BlogContent
+                        </p>
+                        <a href="/Blog/Index" class="btn btn-primary read-m">بلوگ ها</a>
                     </div>
-
-                    <h3>
-                        <a href="single.html">@item.BlogTitle </a>
-                    </h3>
-                    <p>
-                        @item.BlogContent
-                    </p>
-                    <a href="/Blog/Index" class="btn btn-primary read-m">بلوگ ها</a>
-                </div>
                 }
 
-                @await Component.InvokeAsync("CommentList")
+
+                @await Component.InvokeAsync("CommentListByBlog", new { id = ViewBag.id })
 
                 @await Html.PartialAsync("/Views/Comment/PartialAddComment.cshtml")
             </div>
@@ -80,25 +85,11 @@
                         </form>
 
                     </div>
+
+                    @await Component.InvokeAsync("CategoryList")
+
                     <div class="tech-btm">
-                        <h4>Categories</h4>
-                        <ul class="list-group single">
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Cras justo odio
-                                <span class="badge badge-primary badge-pill">14</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Dapibus ac facilisis in
-                                <span class="badge badge-primary badge-pill">2</span>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                Morbi leo risus
-                                <span class="badge badge-primary badge-pill">1</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tech-btm">
-                        <h4>Top stories of the week</h4>
+                        <h4>مطالب نویسنده</h4>
 
                         <div class="blog-grids row mb-3">
                             <div class="col-md-5 blog-grid-left">
@@ -157,7 +148,7 @@
                         </div>
                     </div>
                     <div class="single-gd tech-btm">
-                        <h4>Recent Post</h4>
+                        <h4>آخرین مطلب</h4>
                         <div class="blog-grids">
                             <div class="blog-grid-left">
                                 <a href="single.html">
