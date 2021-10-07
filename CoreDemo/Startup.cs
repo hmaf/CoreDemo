@@ -8,6 +8,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessLayer.ValidationRules;
+using EntityLayer.Concrete;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 
 namespace CoreDemo
 {
@@ -23,7 +27,13 @@ namespace CoreDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation();
+
+            #region fluentvalidation
+
+            services.AddTransient<IValidator<Writer>, WriterValidator>();
+
+            #endregion
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

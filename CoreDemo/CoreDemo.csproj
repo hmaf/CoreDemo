@@ -9,6 +9,7 @@
     <None Include="Views\Blog\Index.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Comment\CommentListByBlog.cshtml" />
+    <None Include="Views\Register\Index.cshtml" />
     <None Include="wwwroot\Web\js\bootstrap.js" />
     <None Include="wwwroot\Web\js\easing.js" />
     <None Include="wwwroot\Web\js\jquery-2.2.3.min.js" />
@@ -25,6 +26,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.ViewFeatures" Version="2.2.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.9">
       <PrivateAssets>all</PrivateAssets>
