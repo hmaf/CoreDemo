@@ -9,6 +9,7 @@
     <None Include="Views\Blog\Index.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Comment\CommentListByBlog.cshtml" />
+    <None Include="Views\Login\Index.cshtml" />
     <None Include="Views\Register\Index.cshtml" />
     <None Include="wwwroot\Web\js\bootstrap.js" />
     <None Include="wwwroot\Web\js\easing.js" />
