@@ -1,0 +1,39 @@
+﻿
+
+
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+<div dir="rtl" class="tech-btm text-right">
+    <h4>ثبت نام در سامانه خبری</h4>
+    <p>اخبار فیلم،تکنولوژی و ... در دریافت کنید </p>
+    <form method="post">
+        <input type="email" placeholder="ایمیل" required="" id="Mail">
+        <input type="submit" id="BtnSubmit" value="ثبت">
+    </form>
+
+
+</div>
+
+
+    <script>
+        $(document).ready(function () {
+             $("#BtnSubmit").click(function () {
+                    $.ajax({
+                            type: "POST",
+                            url: '@Url.Action("SubscribeMail", "Newsletter")',
+                            data: { Mail: $("#Mail").val()},
+                            success: function () {
+                                swal("Data inserted successfully");
+
+                            },
+                            error:function(){
+                                swal("insert errorr");
+                            }
+                    });
+             });
+        });
+      
+
+
+    </script>
