@@ -1,15 +1,35 @@
-﻿
+﻿<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <div dir="rtl" class="comment-top">
     <h4 class="text-right">نظرات خود را بنویسید</h4>
     <div class="comment-bottom">
         <form action="#" method="post">
-            <input class="form-control" type="text" name="Name" placeholder="نام" required="">
-            <input class="form-control" type="email" name="Email" placeholder="ایمیل" required="">
-
-            <input class="form-control" type="text" name="Subject" placeholder="عنوان" required="">
-
-            <textarea class="form-control" name="Message" placeholder="پیام..." required=""></textarea>
-            <button type="submit" class="btn btn-primary submit">Submit</button>
+            <input type="hidden" name="pageid" id="pageid" value="@ViewData["ID"]"/>
+            <input class="form-control" type="text" name="CommentUserName" id="txtName" placeholder="نام نام خانوادگی" required="">
+            <input class="form-control" type="text" name="CommentTitle" id="txtTitle" placeholder="عنوان" required="">
+            <textarea class="form-control" name="CommentContent" id="CommentContent" placeholder="پیام..." required=""></textarea>
+            <button type="submit" class="btn btn-primary submit" id="btnSubmit">ثبت</button>
         </form>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+
+        $("#btnSubmit").click(function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            $.ajax({
+                type: "POST",
+                url: '@Url.Action("PartialAddComment", "Comment")',
+                data: {
+                     CommentUserName: $("#txtName").val(),
+                     CommentTitle: $("#txtTitle").val(),
+                     CommentContent: $("#CommentContent").val(),
+                    BlogId: $("#pageid").val()
+                }
+                
+            });
+        });
+    });
+  
+</script>

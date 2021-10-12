@@ -12,7 +12,7 @@ using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
-using Newtonsoft.Json.Serialization;
+
 
 namespace CoreDemo
 {
@@ -30,11 +30,7 @@ namespace CoreDemo
         {
             services.AddControllersWithViews().AddFluentValidation();
             
-            services.AddControllers().AddNewtonsoftJson(options =>
-            {
-                // Use the default property (Pascal) casing
-                options.SerializerSettings.ContractResolver = new DefaultContractResolver();
-            });
+            
 
             #region fluentvalidation
 
@@ -56,6 +52,9 @@ namespace CoreDemo
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseStatusCodePagesWithReExecute("/ErrorPage/Error1", "?code={0}");
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

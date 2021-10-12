@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using DataAccessLayer.EntityFramwork;
 using BusinessLayer.Concrete;
+using EntityLayer.Concrete;
 
 namespace CoreDemo.Controllers
 {
@@ -24,6 +25,14 @@ namespace CoreDemo.Controllers
 
         public PartialViewResult PartialAddComment()
         {
+            return PartialView();
+        }
+        [HttpPost]
+        public PartialViewResult PartialAddComment(Comment comment)
+        {
+            comment.CommentCreateDate=DateTime.Now;
+            comment.CommentStatus = true;
+            cm.CommentAdd(comment);
             return PartialView();
         }
     }

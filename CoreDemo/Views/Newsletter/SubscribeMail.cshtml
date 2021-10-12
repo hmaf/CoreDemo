@@ -18,7 +18,10 @@
 
     <script>
         $(document).ready(function () {
-             $("#BtnSubmit").click(function () {
+
+             $("#BtnSubmit").click(function (e) {
+                 e.preventDefault();
+                 e.stopImmediatePropagation();
                     $.ajax({
                             type: "POST",
                             url: '@Url.Action("SubscribeMail", "Newsletter")',

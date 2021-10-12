@@ -65,8 +65,11 @@
 
 
                 @await Component.InvokeAsync("CommentListByBlog", new { id = ViewBag.id })
+                @{
+                    ViewData["ID"]= ViewBag.id;
+                }
                 
-                <partial name="/Views/Comment/PartialAddComment.cshtml"/>
+                <partial name="/Views/Comment/PartialAddComment.cshtml" view-data="ViewData"/>
             </div>
 
             <!--//left-->
