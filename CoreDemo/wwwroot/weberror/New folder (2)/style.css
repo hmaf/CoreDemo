@@ -1,0 +1,150 @@
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: oldlace;
+    margin: 0;
+    padding: 0;
+    
+}
+* {
+    box-sizing: border-box;
+  }
+.wallpear{
+    background: url(banner2.jpg) no-repeat bottom;
+    background-size: cover;
+    position: relative;
+    display: grid;
+    align-items: center;
+    height: 100vh;
+    min-width: 1440px;
+    z-index: 0;
+    
+}
+.wallpear::before{
+    content: "";
+  background: rgba(66, 21, 2, 0.45);
+  position: absolute;
+  top: 0;
+  min-height: 100%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+  
+@media (min-width: 576px) {
+    .wallpear {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .wallpear {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .wallpear {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .wallpear {
+      max-width: 1140px;
+    }
+  }
+
+.wallpear .container h3{
+    
+    color: #fff;
+    font-size: 225px;
+    line-height: 200px;
+    margin-top: -250px;
+    margin-right: 200px;
+}
+.wallpear .container p{
+  position: absolute;
+  margin-top: 0 auto;
+  color:#fff;
+  margin-left: 200px;
+  line-height: 30px;
+  font-size: 25px;
+  left: 800px;
+  top: 350px;
+  
+}
+.wallpear .container button{
+  cursor: pointer;
+}
+.d-flex{
+  display: flex;
+  display: -webkit-flex;
+ 
+}
+.flex{
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+}
+h3,p{
+    margin: 0;
+    padding: 0;
+}
+.wallpear .container .error-page-form{
+  border: 2px solid #fff;
+  border-radius: 25px;
+  padding: 5px;
+  margin-right: 150px;
+  
+}
+.wallpear .container .error-page-form input{
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  display: block;
+  padding: 0.4em 12em;
+  background: rgba(114, 51, 23, 0.75);
+  letter-spacing: 1px;
+  width: 79%;
+  border-radius: 25px;
+  margin-right: 1%;
+  
+}
+.btn,
+button,
+.actionbg {
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+}
+
+.btn:hover,
+button:hover {
+  transition: 0.5s ease;
+  -webkit-transition: 0.5s ease;
+  -o-transition: 0.5s ease;
+  -ms-transition: 0.5s ease;
+  -moz-transition: 0.5s ease;
+}
+.wallpear .container .error-page-form button{
+  color:var(--theme-green);
+  background:#fff;
+  border: none;
+  padding:10px 15px;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 20%;
+  display: block;
+  border-radius: 25px;
+}
+.wallpear .container .error-page-form button:hover{
+  color:#fff;
+  background: #394247;
+}

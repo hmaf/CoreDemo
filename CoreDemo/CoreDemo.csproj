@@ -14,8 +14,8 @@
     <None Include="Views\Login\Index.cshtml" />
     <None Include="Views\Newsletter\SubscribeMail.cshtml" />
     <None Include="Views\Register\Index.cshtml" />
-    <None Include="wwwroot\weberror\fonts\fontawesome-webfont.svg" />
-    <None Include="wwwroot\weberror\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\weberror\New folder %282%29\fontawesome-webfont.svg" />
+    <None Include="wwwroot\weberror\New folder %282%29\fontawesome-webfont.woff2" />
     <None Include="wwwroot\Web\js\bootstrap.js" />
     <None Include="wwwroot\Web\js\easing.js" />
     <None Include="wwwroot\Web\js\jquery-2.2.3.min.js" />
