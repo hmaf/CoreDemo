@@ -8331,10 +8331,10 @@ button.bg-dark:focus {
   margin-top: auto !important;
 }
 
-.mr-auto,
+/*.mr-auto,
 .mx-auto {
   margin-right: auto !important;
-}
+}*/
 
 .mb-auto,
 .my-auto {
