@@ -4707,6 +4707,10 @@ tbody.collapse.show {
   content: "/";
 }
 
+.login_view {
+    margin-right: 410px;
+}
+
 .breadcrumb-item + .breadcrumb-item:hover::before {
   text-decoration: underline;
 }

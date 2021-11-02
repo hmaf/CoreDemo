@@ -8,12 +8,16 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreHero.ToastNotification;
 using BusinessLayer.ValidationRules;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Authentication;
 
 
 namespace CoreDemo
@@ -34,6 +38,8 @@ namespace CoreDemo
 
             #region Authentication
 
+            services.AddSession();
+
             services.AddMvc(config =>
             {
                 var policy = new AuthorizationPolicyBuilder()
@@ -41,6 +47,24 @@ namespace CoreDemo
                     .Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
             });
+
+
+            services.AddAuthentication( CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(x => { x.LoginPath = "/Login/Index"; }
+                );
+                //.AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+                //{
+                //    options.ClientId = Configuration["Authentication:Google:ClientId"];
+                //    options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                //    options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+                //});
+
+            //services.AddNotyf(config =>
+            //{
+            //    config.DurationInSeconds = 10;
+            //    config.IsDismissable = true;
+            //    config.Position = NotyfPosition.BottomRight;
+            //});
 
             #endregion
 
@@ -70,10 +94,12 @@ namespace CoreDemo
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseSession();
+            app.UseAuthentication();
             app.UseRouting();
 
             app.UseAuthorization();
+           
 
             app.UseEndpoints(endpoints =>
             {
