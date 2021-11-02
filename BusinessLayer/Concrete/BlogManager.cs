@@ -37,6 +37,10 @@ namespace BusinessLayer.Concrete
             return _blogdbl.GetListAll();
         }
 
+        public List<Blog> GetLast3Blog()
+        {
+            return _blogdbl.GetListAll().Take(3).ToList();
+        }
         public Blog GetById(int id)
         {
             return _blogdbl.GetById(id);
