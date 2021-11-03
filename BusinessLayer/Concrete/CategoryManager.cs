@@ -18,19 +18,15 @@ namespace BusinessLayer.Concrete
         {
             _categorydbl = categorydbl;
         }
-        public void CategoryAdd(Category category)
+
+        public void Add(Category t)
         {
-            _categorydbl.Insert(category);
+            _categorydbl.Insert(t);
         }
 
-        public void CategoryDelete(Category category)
+        public void Delete(Category t)
         {
-            _categorydbl.Delete(category);
-        }
-
-        public void CategoryUpdate(Category category)
-        {
-            _categorydbl.Update(category);
+            _categorydbl.Delete(t);
         }
 
         public Category GetById(int id)
@@ -41,6 +37,11 @@ namespace BusinessLayer.Concrete
         public List<Category> GetList()
         {
             return _categorydbl.GetListAll();
+        }
+
+        public void Update(Category t)
+        {
+            _categorydbl.Update(t);
         }
     }
 }
