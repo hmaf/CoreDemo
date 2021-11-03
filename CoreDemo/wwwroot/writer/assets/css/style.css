@@ -13281,7 +13281,7 @@ dl {
           .sidebar .nav .nav-item .nav-link i.menu-icon {
             font-size: 1.125rem;
             line-height: 1;
-            margin-left: auto;
+            margin-right: auto;
             color: #bba8bff5; }
             .rtl .sidebar .nav .nav-item .nav-link i.menu-icon {
               margin-left: 0;

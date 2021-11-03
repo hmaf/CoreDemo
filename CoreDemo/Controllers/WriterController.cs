@@ -28,5 +28,15 @@ namespace CoreDemo.Controllers
         {
             return View();
         }
+
+        public IActionResult WriterSidebar()
+        {
+            return PartialView();
+        }
+
+        public IActionResult WriterFooterPartial()
+        {
+            return PartialView();
+        }
     }
 }
