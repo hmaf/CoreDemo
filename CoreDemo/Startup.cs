@@ -72,6 +72,7 @@ namespace CoreDemo
             #region fluentvalidation
 
             services.AddTransient<IValidator<Writer>, WriterValidator>();
+            services.AddTransient<IValidator<Blog>, BlogValidator>();
 
             #endregion
         }

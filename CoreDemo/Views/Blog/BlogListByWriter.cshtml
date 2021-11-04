@@ -1,0 +1,77 @@
+﻿@using Microsoft.AspNetCore.Razor.Language.Intermediate
+@model List<Blog>
+@{
+    ViewData["Title"] = "BlogListByWriter";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<!--//Sweet Alert cdn-->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<!--/Sweet Alert cdn-->
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>عنوان</th>
+        <th>تاریخ ایجاد</th>
+        <th>دسته بندی</th>
+        <th>وضعیت</th>
+        <th>دستورات</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BlogId</td>
+            <td>@item.BlogTitle</td>
+            <td>@item.BlogCreateDate.ToString("d")</td>
+            <td>@item.Category.CategoryName</td>
+            <td>
+                @{
+                    if (item.BlogStatus)
+                    {
+                        <span class="badge badge-success">فعال</span>
+                    }
+                    else
+                    {
+                        <span class="badge badge-secondary">غیر فعال</span>
+                    }
+                }
+            </td>
+            <td>
+                <a onclick="return confirm('ایا از حذف مطمئن هستید!')" href="~/Blog/BlogDelete/@item.BlogId"  class="btn btn-danger btn-rounded">حذف</a>
+                
+                <a asp-action="EditBlog" asp-route-id="@item.BlogId" class="btn btn-warning btn-rounded">ویرایش</a>
+            </td>
+            
+        </tr>
+    }
+</table>
+
+<a asp-action="BlogAdd" class="btn btn-primary btn-rounded">بلوگ جدید</a>
+@*@section Scripts
+{
+    <script>
+        function mydelete() {
+            
+            
+            swal({
+                title: "اخطار !",
+                text: "در صورت حذف دیگر بازیابی  نخواهد شد!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((result) => {
+                if (result) {
+                    swal("فایل مورد نظر حذف شد !",
+                        {
+                            icon: "success",
+                        });
+                } else {
+                    swal("فایل شما امن است!");
+                }
+            });
+        }
+    </script>
+}*@

@@ -1,0 +1,35 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "EditBlog";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<h1>ویرایش بلوگ</h1>
+
+<br />
+<form method="post" asp-action="EditBlog">
+    <input type="hidden" asp-for="BlogId"/>
+    <input type="hidden" asp-for="BlogCreateDate"/>
+    <input type="hidden" asp-for="BlogStatus"/>
+    <input type="hidden" asp-for="WriterId"/>
+    <label>عنوان</label>
+    <input type="text" asp-for="BlogTitle" class="form-control"/>
+    <span asp-validation-for="BlogTitle" class="text-danger"></span>
+    <br/>
+    <label>تصویر</label>
+    <input type="text" asp-for="ImageName" class="form-control"/>
+    <br/>
+    <label>تصویر کوچک</label>
+    <input type="text" asp-for="BlogThumbnailName" class="form-control"/>
+    <span asp-validation-for="BlogThumbnailName" class="text-danger"></span>
+    <br/>
+    <label>دسته بندی</label>
+    <select class="form-control" asp-for="CategoryId" asp-items="(List<SelectListItem>)@ViewBag.cv"></select>
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+    <br/>
+    <label>توضیحات</label>
+    <textarea asp-for="BlogContent" rows="7" class="form-control"></textarea>
+    <span asp-validation-for="BlogContent" class="text-danger"></span>
+    <br/>
+    <button class="btn btn-success" >ثبت</button>
+</form>

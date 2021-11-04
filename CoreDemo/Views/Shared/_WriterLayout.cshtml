@@ -25,7 +25,7 @@
     <!-- End layout styles -->
     <link rel="shortcut icon" href="~/writer/assets/images/favicon.ico" />
 </head>
-<body  dir="rtl">
+<body dir="rtl">
     <div class="container-scroller text-right">
         <!-- partial:~/writer/partials/_navbar.html -->
         <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
@@ -108,12 +108,16 @@
             <!-- partial:~/writer/partials/_sidebar.html -->
             <partial name="~/Views/Writer/WriterSidebar.cshtml" />
             <!-- partial -->
-            @RenderBody()
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    @RenderBody()
 
-
+                </div>
+                <partial name="~/Views/Writer/WriterFooterPartial.cshtml" />
+            </div>
             <!-- main-panel ends -->
         </div>
-        <partial name="~/Views/Writer/WriterFooterPartial.cshtml" />
+
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
@@ -129,5 +133,7 @@
     <!-- endinject -->
     <!-- Custom js for this page -->
     <!-- End custom js for this page -->
+    @RenderSection("Scripts", required: false)
+
 </body>
 </html>

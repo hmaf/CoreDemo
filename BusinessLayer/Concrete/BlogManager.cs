@@ -27,7 +27,7 @@ namespace BusinessLayer.Concrete
         {
             return _blogdbl.GetListAll().Take(3).ToList();
         }
-        public Blog GetById(int id)
+        public Blog TGetById(int id)
         {
             return _blogdbl.GetById(id);
         }
@@ -60,6 +60,11 @@ namespace BusinessLayer.Concrete
         public void Update(Blog t)
         {
             _blogdbl.Update(t);
+        }
+
+        public List<Blog> GetListWithCategoryByWriterBM(int id)
+        {
+            return _blogdbl.GetListWithCategoryByWriter(id);
         }
     }
 }
