@@ -1,0 +1,70 @@
+﻿@model List<Blog>
+
+@{
+    var classc = "";
+}
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">10 بلوگ آخر</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> عنوان </th>
+                                <th> دسته بندی </th>
+                                <th> تاریخ </th>
+                                <th> جزئیات </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                @switch (item.CategoryId)
+                                {
+                                    case 1:
+                                        {
+                                            classc= "badge-gradient-success";
+                                            break;
+                                        }
+                                    case 2:
+                                        {
+                                            classc= "badge-gradient-warning";
+                                            break;
+                                        }
+                                    case 4:
+                                        {
+                                            classc= "badge-gradient-danger";
+                                            break;
+                                        }
+                                    default:
+                                        {
+                                            classc= "badge-gradient-info";
+                                            break;
+                                        }
+                                }
+
+                                <tr>
+                                    <td>
+                                        <img src="@item.BlogThumbnailName" class="mr-2" alt="image">
+                                    </td>
+                                    <td> @item.BlogTitle </td>
+                                    <td>
+                                        <label class="badge @classc">@item.Category.CategoryName</label>
+                                    </td>
+                                    <td> @(((DateTime)item.BlogCreateDate).ToString("d")) </td>
+                                    <td>
+                                        <a href="/Blog/BlogReadAll/@item.BlogId" class="btn btn-primary btn-sm">چزئیات</a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

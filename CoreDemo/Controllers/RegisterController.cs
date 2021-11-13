@@ -73,7 +73,7 @@ namespace CoreDemo.Controllers
             {
                 p.WriterStatus = true;
                 p.WriterAbout = "test";
-                wm.AddWriter(p);
+                wm.Add(p);
             }
             else
             {
