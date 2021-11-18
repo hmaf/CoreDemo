@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Writer t)
         {
-            _writerDal.Update(t);
+            throw new NotImplementedException();
         }
 
         public List<Writer> GetList()
@@ -41,7 +41,7 @@ namespace BusinessLayer.Concrete
 
         public Writer TGetById(int id)
         {
-          return _writerDal.GetById(id);
+            throw new NotImplementedException();
         }
 
         public List<Writer> GetWriterById(int id)
