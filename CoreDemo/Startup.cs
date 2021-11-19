@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreHero.ToastNotification;
 using BusinessLayer.ValidationRules;
+using CoreDemo.Models;
 using EntityLayer.Concrete;
 using FluentValidation;
 using FluentValidation.AspNetCore;
@@ -72,6 +73,7 @@ namespace CoreDemo
             #region fluentvalidation
 
             services.AddTransient<IValidator<Writer>, WriterValidator>();
+            services.AddTransient<IValidator<AddProfileImageViewModel>, AddProfileImageValidator>();
             services.AddTransient<IValidator<Blog>, BlogValidator>();
 
             #endregion

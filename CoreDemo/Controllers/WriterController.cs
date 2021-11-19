@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using BusinessLayer.Concrete;
+using CoreDemo.Models;
 using DataAccessLayer.EntityFramwork;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
@@ -57,6 +59,36 @@ namespace CoreDemo.Controllers
 
             wm.Update(p);
             return RedirectToAction("Index", "Dashboard");
+        }
+
+        public IActionResult WriterAdd()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult WriterAdd(AddProfileImageViewModel p)
+        {
+            if (!ModelState.IsValid)
+                return View(p);
+
+            Writer writer=new Writer();
+            if (p.WriterImageName != null)
+            {
+                var extension = Path.GetExtension(p.WriterImageName.FileName);
+                var newimagename = Guid.NewGuid() + extension;
+                var location = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/WriterImageFiles/", newimagename);
+                var stream=new FileStream(location,FileMode.Create);
+                p.WriterImageName.CopyTo(stream);
+                writer.WriterImageName = newimagename;
+            }
+
+            writer.WriterName = p.WriterName;
+            writer.WriterAbout = p.WriterAbout;
+            writer.WriterPassword = p.WriterPassword;
+            writer.WriterMail = p.WriterMail;
+            writer.WriterStatus = true;
+            wm.Add(writer);
+            return RedirectToAction("Index","Dashboard");
         }
     }
 }
