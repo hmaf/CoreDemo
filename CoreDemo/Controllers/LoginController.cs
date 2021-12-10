@@ -32,6 +32,7 @@ namespace CoreDemo.Controllers
            {
                var claims = new List<Claim>
                {
+                   
                    new Claim(ClaimTypes.Name, p.WriterMail)
                };
                var useridentity=new ClaimsIdentity(claims, "a");

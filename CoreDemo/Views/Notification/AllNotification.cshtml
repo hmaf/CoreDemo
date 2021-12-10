@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Notification>
+@{
+    ViewData["Title"] = "AllNotification";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">اعلانات</h4>
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th> # </th>
+                            <th> تاریخ </th>
+                            <th> توضیحات </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.NotificationType</td>
+                                <td>
+                                    @item.NotificationDate.ToShortDateString()
+                                    @{
+                                        DateTime end = (DateTime)item.NotificationDate;
+                                        DateTime now = DateTime.Now;
+                                        TimeSpan diff = end.Subtract(now);
+                                    }
+                                    @if (diff.Days != 0 && diff.Hours != 0 && diff.Minutes != 0)
+                                    {
+                                        <p class="text-gray mb-0 text-small">
+                                            @diff.ToString(@"dd") روز
+                                            @diff.ToString(@"hh") ساعت
+                                            @diff.ToString(@"mm") دقیقه
+                                            @diff.ToString(@"ss") ثانیه
+                                        </p>
+                                    }
+                                    else if (diff.Days == 0 && diff.Hours != 0 && diff.Minutes != 0)
+                                    {
+                                        <p class="text-gray mb-0 text-small">
+                                            @diff.ToString(@"hh") ساعت
+                                            @diff.ToString(@"mm") دقیقه
+                                            @diff.ToString(@"ss") ثانیه
+                                        </p>
+                                    }
+                                </td>
+                                <td> @item.NotificationDetails </td>
+
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

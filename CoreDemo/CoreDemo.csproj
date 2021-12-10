@@ -14,7 +14,9 @@
     <None Include="Views\Dashboard\Index.cshtml" />
     <None Include="Views\ErrorPage\Error1.cshtml" />
     <None Include="Views\Login\Index.cshtml" />
+    <None Include="Views\Message\InBox.cshtml" />
     <None Include="Views\Newsletter\SubscribeMail.cshtml" />
+    <None Include="Views\Notification\AllNotification.cshtml" />
     <None Include="Views\Register\Index.cshtml" />
     <None Include="Views\Writer\Test.cshtml" />
     <None Include="wwwroot\weberror\New folder %282%29\fontawesome-webfont.svg" />

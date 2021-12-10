@@ -1,0 +1,25 @@
+﻿@model Message2
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h1>جزئیات پیام</h1>
+
+            <br />
+
+            <label>شماره پیام</label>
+            <input type="text" asp-for="MessageId" class="form-control" />
+            <br />
+            <label>موضوع</label>
+            <label asp-for="Subject" class="form-control"></label>
+            <br />
+            <label>پیام</label>
+            <textarea rows="7" asp-for="MessageDetails" class="form-control" ></textarea>
+            <br />
+            <button class="btn btn-success">بازگشت به پیام ها</button>
+        </div>
+    </div>
+</div>

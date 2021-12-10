@@ -1,0 +1,36 @@
+﻿@model List<Message2>
+@{
+    ViewData["Title"] = "InBox";
+    Layout = "~/Views/Shared/_WriterLayout.cshtml";
+}
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h1>صندوق دریافتی</h1>
+            <table class="table">
+                <tr>
+                    <th>#</th>
+                    <th>موضوع</th>
+                    <th>ارسال کننده</th>
+                    <th>تاریخ</th>
+                    <th>جزئییات</th>
+
+                </tr>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.MessageId</td>
+                        <td>@item.Subject</td>
+                        <td>@item.SenderUser.WriterName</td>
+                        <td>@item.MessageDate.ToString("d")</td>
+                        <td>
+                            <a href="/Message/MessageDetails/@item.MessageId" class="btn btn-warning">باز کردن پیام</a>
+                        </td>
+
+                    </tr>
+                }
+            </table>
+            <a href="/Blog/BlogAdd" class="btn btn-primary">پیام جدید</a>
+        </div>
+    </div>
+</div>
