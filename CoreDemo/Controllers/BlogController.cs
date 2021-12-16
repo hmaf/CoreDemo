@@ -14,6 +14,7 @@ namespace CoreDemo.Controllers
     {
         BlogManager bm=new BlogManager(new EFBlogRepository());
         CategoryManager cm=new CategoryManager(new EFCategoryRepository());
+        WriterManeger wm=new WriterManeger(new EFWriterRepository());
 
         public IActionResult Index()
         {
@@ -31,7 +32,9 @@ namespace CoreDemo.Controllers
 
         public IActionResult BlogListByWriter()
         {
-            var values = bm.GetListWithCategoryByWriterBM(1);
+            int getWriterId = wm.GetWriterByUsername(User.Identity.Name).WriterId;
+
+            var values = bm.GetListWithCategoryByWriterBM(getWriterId);
             return View(values);
         }
 
@@ -55,7 +58,7 @@ namespace CoreDemo.Controllers
             }
             p.BlogStatus = true;
             p.BlogCreateDate = DateTime.Parse(DateTime.Now.ToShortDateString());
-            p.WriterId = 1;
+            p.WriterId = wm.GetWriterByUsername(User.Identity.Name).WriterId;
             bm.Add(p);
             return RedirectToAction("BlogListByWriter");
         }

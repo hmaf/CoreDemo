@@ -14,7 +14,7 @@ namespace CoreDemo.ViewComponents.Writer
 
         public IViewComponentResult Invoke()
         {
-            var values = vm.GetWriterById(1);
+            var values = vm.GetWriterByUsername(User.Identity.Name);
             return View(values);
         }
 
