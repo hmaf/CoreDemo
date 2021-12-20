@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <None Include="Views\About\Index.cshtml" />
+    <None Include="Views\Admin\Index.cshtml" />
     <None Include="Views\Blog\Index.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Comment\CommentListByBlog.cshtml" />
