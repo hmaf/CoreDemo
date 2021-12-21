@@ -1,4 +1,6 @@
-﻿
+﻿@using System.IO
+@using Microsoft.AspNetCore.Http
+
 @{
     Layout = null;
 }
@@ -30,8 +32,8 @@
 
     <div id="wrapper">
 
-        <partial name="/Views/Admin/_AdminSidebarPartial.cshtml"/>
-        
+        <partial name="/Views/Admin/_AdminSidebarPartial.cshtml" />
+
         <div id="page-wrapper" class="gray-bg">
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -153,18 +155,19 @@
 
                 </nav>
             </div>
+
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
                     <h2>Sweet Alert</h2>
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item">
-                            <a href="index.html">Home</a>
+                            <a href="index.html"></a>
                         </li>
                         <li class="breadcrumb-item">
-                            <a>Miscellaneous</a>
+                            <a></a>
                         </li>
                         <li class="breadcrumb-item active">
-                            <strong>Sweet Alert</strong>
+                            <strong></strong>
                         </li>
                     </ol>
                 </div>
@@ -205,48 +208,49 @@
 
     <script>
 
-    $(document).ready(function () {
+        $(document).ready(function () {
 
-        $('.demo1').click(function(){
-            swal({
-                title: "Welcome in Alerts",
-                text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            $('.demo1').click(function () {
+                swal({
+                    title: "Welcome in Alerts",
+                    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+                });
             });
-        });
 
-        $('.demo2').click(function(){
-            swal({
-                title: "Good job!",
-                text: "You clicked the button!",
-                type: "success"
+            $('.demo2').click(function () {
+                swal({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    type: "success"
+                });
             });
-        });
 
-        $('.demo3').click(function () {
-            swal({
-                title: "Are you sure?",
-                text: "You will not be able to recover this imaginary file!",
-                type: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#DD6B55",
-                confirmButtonText: "Yes, delete it!",
-                closeOnConfirm: false
-            }, function () {
-                swal("Deleted!", "Your imaginary file has been deleted.", "success");
+            $('.demo3').click(function () {
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                }, function () {
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                });
             });
-        });
 
-        $('.demo4').click(function () {
-            swal({
-                        title: "Are you sure?",
-                        text: "Your will not be able to recover this imaginary file!",
-                        type: "warning",
-                        showCancelButton: true,
-                        confirmButtonColor: "#DD6B55",
-                        confirmButtonText: "Yes, delete it!",
-                        cancelButtonText: "No, cancel plx!",
-                        closeOnConfirm: false,
-                        closeOnCancel: false },
+            $('.demo4').click(function () {
+                swal({
+                    title: "Are you sure?",
+                    text: "Your will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel plx!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
                     function (isConfirm) {
                         if (isConfirm) {
                             swal("Deleted!", "Your imaginary file has been deleted.", "success");
@@ -254,13 +258,14 @@
                             swal("Cancelled", "Your imaginary file is safe :)", "error");
                         }
                     });
+            });
+
+
         });
-
-
-    });
 
     </script>
 
+    @RenderSection("Scripts", required: false)
 
 </body>
 
