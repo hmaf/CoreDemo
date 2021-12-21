@@ -36,6 +36,14 @@ namespace CoreDemo.Areas.Admin.Controllers
             cm.Add(category);
             return RedirectToAction("Index");
         }
+
+        public IActionResult DeleteCategory(int id)
+        {
+            var value = cm.TGetById(id);
+            cm.Delete(value);
+
+            return RedirectToAction("Index");
+        }
     }
 }
 //get current url address

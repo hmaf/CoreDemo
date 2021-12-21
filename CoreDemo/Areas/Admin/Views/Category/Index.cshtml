@@ -34,7 +34,8 @@
                     <tr>
                         <td>@item.CategoryId</td>
                         <td>@item.CategoryName</td>
-                        <td><a href="#" class="btn btn-outline-danger">فعال</a></td>
+                        <td><a asp-action="DeleteCategory" asp-route-id="@item.CategoryId" class="btn btn-outline-danger"
+                               id="deleteCategory" onclick="return confirm('ایا از حذف مطمعا هستید');">فعال</a></td>
                         <td><a href="#" class="btn btn-outline-warning">غیر فعال</a></td>
                         <td><a href="#" class="btn btn-outline-success">ویرایش</a></td>
 
