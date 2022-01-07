@@ -8,7 +8,9 @@
   <ItemGroup>
     <None Include="Areas\Admin\Views\Blog\BlogListExcel.cshtml" />
     <None Include="Areas\Admin\Views\Category\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Chart\Index.cshtml" />
     <None Include="Areas\Admin\Views\Widget\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Writer\Index1.cshtml" />
     <None Include="Views\About\Index.cshtml" />
     <None Include="Views\Admin\Index.cshtml" />
     <None Include="Views\Blog\Index.cshtml" />
