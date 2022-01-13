@@ -1,30 +1,64 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index1";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>Index1</h1>
+
 <br />
 <button type="buttom" id="btngetlist" class="btn btn-outline-primary">لیست نویسنده</button>
-<br /><br />
+<button type="buttom" id="btnGetById" class="btn btn-outline-success">دریافت نویسنده</button>
+<br />
+<br />
 <div id="writerlist">
     writer
+</div>
+<div id="WriterGet">
+    get 1 writer
+</div>
+<div>
+    <input type="text" id="id" placeholder="ID نویسنده را وارد کنید" class="form-control"/>
 </div>
 
 @section Scripts{
 
-    <script>
-        $("#btnGetList").click(function () {
-            $.ajax({
-                contentType: "application/json",
-                dataType: "json",
-                type: "Get",
-                url: "/Admin/Writer/WriterList",
-                success: function (func) {
-                    console.log(func);
-                }
-            })
-        })
-    </script>
+<script>
+    $("#btngetlist").click(function () {
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "Get",
+            url: "/Admin/Writer/WriterList",
+            success: function (func) {
+                let w = jQuery.parseJSON(func);
+                console.log(w);
+                let tablehtml = "<table class=table table-bordered> <tr><th> ID </th> <th>نام نویسنده</th></tr>";
+                $.each(w, (index1, value) => {
+                    tablehtml += `<tr><td>${value.Id}</td> <td>${value.Name}</td></tr>`
+                });
+                tablehtml += "</table>"
+                $("#writerlist").html(tablehtml);
+            }
+        });
+    });
+
+    $("#btnGetById").click(function () {
+        let getid = $("#id").val();
+        $.ajax({
+            contentType: "application/json",
+            dataType: "json",
+            type: "get",
+            url: "/Admin/Writer/GetWriterById",
+            data: {id: getid},
+            success: function (func){
+                let w = jQuery.parseJSON(func);
+                console.log(w);
+
+                let getValue = `<table class=table table-bordered><tr><th>ID</th><th>نام نویسنده </th></tr><tr><td>${w.Id}</td><td>${w.Name}</td></table>`
+                $("#WriterGet").html(getValue);
+            }
+        });
+
+    });
+
+</script>
             }
