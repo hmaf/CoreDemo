@@ -22,13 +22,6 @@ namespace CoreDemo.Areas.Admin.Controllers
             return Json(jsonResult);
         }
 
-        public IActionResult GetWriterById(int id)
-        {
-            var findWriter = writers.FirstOrDefault(x=>x.Id==id);
-            var JsonWriter = JsonConvert.SerializeObject(findWriter);
-            return Json(JsonWriter);
-        }
-
         public static List<WriterClass> writers = new List<WriterClass>
         {
             new WriterClass
