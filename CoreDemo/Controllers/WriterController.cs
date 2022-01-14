@@ -15,10 +15,8 @@ namespace CoreDemo.Controllers
     public class WriterController : Controller
     {
         WriterManeger wm=new WriterManeger(new EFWriterRepository());
-        [Authorize]
         public IActionResult Index()
         {
-            ViewData["WriterName"] = wm.GetWriterByUsername(User.Identity.Name).WriterName;
             return View();
         }
 
@@ -50,8 +48,7 @@ namespace CoreDemo.Controllers
         [HttpGet]
         public IActionResult WriterEditProfile()
         {
-            int getWriterId = wm.GetWriterByUsername(User.Identity.Name).WriterId;
-            var profile = wm.TGetById(getWriterId);
+            var profile = wm.TGetById(1);
             return View(profile);
         }
         [HttpPost]

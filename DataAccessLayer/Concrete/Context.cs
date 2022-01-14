@@ -25,24 +25,5 @@ namespace DataAccessLayer.Concrete
         public DbSet<Newsletter> Newsletters { get; set; }
         public DbSet<BlogRayting> BlogRaytings { get; set; }
         public DbSet<Notification> Notifications { get; set; }
-        public DbSet<Message> Messages { get; set; }
-        public DbSet<Message2> Message2s { get; set; }
-        public DbSet<Admin> Admins { get; set; }
-
-        //Floent Api
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<Message2>()
-                .HasOne(x => x.SenderUser)
-                .WithMany(u => u.WriterSender)
-                .HasForeignKey(u => u.SenderId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-
-            modelBuilder.Entity<Message2>()
-                .HasOne(m => m.ReceiverUser)
-                .WithMany(w => w.WriterReceiver)
-                .HasForeignKey(m => m.ReceiverId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-        }
     }
 }

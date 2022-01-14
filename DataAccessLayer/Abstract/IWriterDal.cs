@@ -9,6 +9,5 @@ namespace DataAccessLayer.Abstract
 {
     public interface IWriterDal:GenericDal<Writer>
     {
-        Writer GetWriterByUsername(string username);
     }
 }

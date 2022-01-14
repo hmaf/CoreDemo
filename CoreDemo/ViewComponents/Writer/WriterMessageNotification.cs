@@ -11,11 +11,10 @@ namespace CoreDemo.ViewComponents.Writer
 {
     public class WriterMessageNotification: ViewComponent
     {
-        Message2Manager mm=new Message2Manager(new EFMessage2Repository());
+        CommentManager cm =new CommentManager(new EFCommentRepository());
         public IViewComponentResult Invoke()
         {
-            int p = 1;
-            var res = mm.GetInboxListByWriter(p);
+            var res = cm.GetCommentByWriter();
             return View(res);
         }
     }

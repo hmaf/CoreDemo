@@ -75,7 +75,6 @@ namespace CoreDemo
             services.AddTransient<IValidator<Writer>, WriterValidator>();
             services.AddTransient<IValidator<AddProfileImageViewModel>, AddProfileImageValidator>();
             services.AddTransient<IValidator<Blog>, BlogValidator>();
-            services.AddTransient<IValidator<Category>, CategoryValidator>();
 
             #endregion
         }
@@ -107,11 +106,6 @@ namespace CoreDemo
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute(
-                    name : "areas",
-                    pattern : "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
-
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Blog}/{action=Index}/{id?}");

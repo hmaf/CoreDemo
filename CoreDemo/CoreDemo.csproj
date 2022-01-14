@@ -6,13 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Areas\Admin\Views\Blog\BlogListExcel.cshtml" />
-    <None Include="Areas\Admin\Views\Category\Index.cshtml" />
-    <None Include="Areas\Admin\Views\Chart\Index.cshtml" />
-    <None Include="Areas\Admin\Views\Widget\Index.cshtml" />
-    <None Include="Areas\Admin\Views\Writer\Index1.cshtml" />
     <None Include="Views\About\Index.cshtml" />
-    <None Include="Views\Admin\Index.cshtml" />
     <None Include="Views\Blog\Index.cshtml" />
     <None Include="Views\Category\Index.cshtml" />
     <None Include="Views\Comment\CommentListByBlog.cshtml" />
@@ -20,9 +14,7 @@
     <None Include="Views\Dashboard\Index.cshtml" />
     <None Include="Views\ErrorPage\Error1.cshtml" />
     <None Include="Views\Login\Index.cshtml" />
-    <None Include="Views\Message\InBox.cshtml" />
     <None Include="Views\Newsletter\SubscribeMail.cshtml" />
-    <None Include="Views\Notification\AllNotification.cshtml" />
     <None Include="Views\Register\Index.cshtml" />
     <None Include="Views\Writer\Test.cshtml" />
     <None Include="wwwroot\weberror\New folder %282%29\fontawesome-webfont.svg" />
@@ -118,7 +110,6 @@
 
   <ItemGroup>
     <PackageReference Include="AspNetCoreHero.ToastNotification" Version="1.1.0" />
-    <PackageReference Include="ClosedXML" Version="0.95.4" />
     <PackageReference Include="FluentValidation.AspNetCore" Version="10.3.3" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="5.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
@@ -134,8 +125,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
-    <PackageReference Include="X.PagedList" Version="8.1.0" />
-    <PackageReference Include="X.PagedList.Mvc.Core" Version="8.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -145,7 +134,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\Admin\Data\" />
     <Folder Include="wwwroot\WriterImageFiles\" />
   </ItemGroup>
 
