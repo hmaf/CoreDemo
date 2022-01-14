@@ -29,6 +29,22 @@ namespace CoreDemo.Areas.Admin.Controllers
             return Json(JsonWriter);
         }
 
+        [HttpPost]
+        public IActionResult AddWriter(WriterClass writer)
+        {
+            writers.Add(writer);
+            var jsonWriter = JsonConvert.SerializeObject(writer);
+            return Json(jsonWriter);
+        }
+
+        [HttpPost]
+        public IActionResult DeleteWriter(int id)
+        {
+            var writer = writers.SingleOrDefault(w=>w.Id==id);
+            writers.Remove(writer);
+            return Json(writer);
+        }
+
         public static List<WriterClass> writers = new List<WriterClass>
         {
             new WriterClass

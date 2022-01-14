@@ -7,6 +7,8 @@
 <br />
 <button type="buttom" id="btngetlist" class="btn btn-outline-primary">لیست نویسنده</button>
 <button type="buttom" id="btnGetById" class="btn btn-outline-success">دریافت نویسنده</button>
+<button type="buttom" id="btnAddWriter" class="btn btn-outline-info">افزودن نویسنده</button>
+<button type="buttom" id="btnDeleteWriter" class="btn btn-outline-danger">حذف نویسنده</button>
 <br />
 <br />
 <div id="writerlist">
@@ -18,6 +20,16 @@
 <div>
     <input type="text" id="id" placeholder="ID نویسنده را وارد کنید" class="form-control"/>
 </div>
+<br />
+<div>
+    <input type="text" id="txtWriterId" class="form-control" placeholder="نام ID"/>
+    
+    <input type="text" id="txtWriterName" class="form-control" placeholder="نام نویسنده"/>
+</div>
+   <br />
+   <div>
+       <input type="text" id="txtId" class="form-control" placeholder="نام ID"/>
+   </div>
 
 @section Scripts{
 
@@ -60,5 +72,41 @@
 
     });
 
+    
 </script>
+
+<script>
+    $("#btnAddWriter").click(function () {
+        let writer = {
+            Id: $("#txtWriterId").val(),
+            Name: $("#txtWriterName").val()
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/Admin/Writer/AddWriter",
+            data: writer,
+            success: function (func) {
+                let result = jQuery.parseJSON(func);
+                alert("نویسنده جدید با موفقیت ثبت شد");
+            }
+        });
+    });
+
+</script>
+
+<script>
+    $("#btnDeleteWriter").click(x => {
+        let id = $("#txtId").val();
+        $.ajax({
+            method: "post",
+            url: "/Admin/Writer/DeleteWriter/" + id,
+            dataType: "json",
+            success: function (func){
+                alert("نویسنده مورد نظر با موفقیت حذف شد");
+            }
+        });
+    });
+</script>
+
             }
