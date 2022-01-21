@@ -9,6 +9,7 @@
 <button type="buttom" id="btnGetById" class="btn btn-outline-success">دریافت نویسنده</button>
 <button type="buttom" id="btnAddWriter" class="btn btn-outline-info">افزودن نویسنده</button>
 <button type="buttom" id="btnDeleteWriter" class="btn btn-outline-danger">حذف نویسنده</button>
+<button type="buttom" id="btnUpdateWriter" class="btn btn-outline-warning">بروزرسانی نویسنده</button>
 <br />
 <br />
 <div id="writerlist">
@@ -29,6 +30,11 @@
    <br />
    <div>
        <input type="text" id="txtId" class="form-control" placeholder="نام ID"/>
+   </div>
+   <br />
+   <div>
+       <input type="text" id="txtUpdateId" class="form-control" placeholder="نام ID"/>
+       <input type="text" id="txtWriterUpdate" class="form-control" placeholder="نام نویسنده"/>
    </div>
 
 @section Scripts{
@@ -109,4 +115,20 @@
     });
 </script>
 
+<script>
+    $("#btnUpdateWriter").click(function (){
+        let writer = {
+            Id: $("#txtUpdateId").val(),
+            Name: $("#txtWriterUpdate").val()
+        };
+        $.ajax({
+            type: 'post',
+            url: '/Admin/Writer/UpdateWriter',
+            data: writer,
+            success: function(func){
+                alert("بروزرسانی با موفقیت انجام شد.");
+            }
+        });
+    });
+</script>
             }
