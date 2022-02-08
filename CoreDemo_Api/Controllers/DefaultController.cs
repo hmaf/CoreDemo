@@ -21,5 +21,13 @@ namespace CoreDemo_Api.Controllers
             var values= _context.Employees;
             return Ok(values);
         }
+
+        [HttpPost]
+        public IActionResult AddEmployee(Employee employee)
+        {
+            _context.Add(employee);
+            _context.SaveChanges();
+            return Ok();
+        }
     }
 }
